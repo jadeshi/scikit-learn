@@ -12,7 +12,8 @@ def directional_feature_importance(model,normalize=True):
     impurity = model.tree_.impurity    
     node_samples = model.tree_.weighted_n_node_samples 
     
-    feature_importance = np.zeros((model.tree_.n_features,))
+    feature_importance = np.zeros((model.tree_.
+                                   ,))
 
     for idx,node in enumerate(model.tree_.feature):
         if node >= 0:
@@ -34,9 +35,8 @@ def directional_feature_importance(model,normalize=True):
 
 def compute_ensemble_directionality(rf):
     '''Computes directional Gini importance for a RandomForestRegressor'''
-    n_features = len(rf.feature_importances_)
     outputs = []
-    for i, tree in enumerate(rf.estimators_):
+    for tree in rf.estimators_:
         output = direectional_feature_importance(tree)
         outputs.append(output)
     outputs = np.mean(outputs,axis=0)
