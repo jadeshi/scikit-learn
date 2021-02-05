@@ -3,7 +3,7 @@ import numpy as np
 def directional_feature_importance(model,normalize=True):
     '''Computes a version of Gini importance that includes information about the direction of correlation, analogous to a beta coefficient
     in linear regression, for a single DecisionTreeRegressor. This is a slight modification of a function to calculate normal Gini importance,
-    found at the following link: https://stackoverflow.com/questions/49170296/scikit-learn-feature-importance-calculation-in-decision-trees 
+    found at the following link: https://stackoverflow.com/questions/49170296/scikit-learn-feature-importance-calculation-in-decision-trees
     '''
     values = model.tree_.value.T[0][0]
     left_c = model.tree_.children_left
