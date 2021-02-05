@@ -12,8 +12,7 @@ def directional_feature_importance(model,normalize=True):
     impurity = model.tree_.impurity    
     node_samples = model.tree_.weighted_n_node_samples 
     
-    feature_importance = np.zeros((model.tree_.
-                                   ,))
+    feature_importance = np.zeros((model.tree_.n_features,))
 
     for idx,node in enumerate(model.tree_.feature):
         if node >= 0:
