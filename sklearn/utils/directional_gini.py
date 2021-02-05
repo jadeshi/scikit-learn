@@ -36,7 +36,7 @@ def compute_ensemble_directionality(rf):
     '''Computes directional Gini importance for a RandomForestRegressor'''
     outputs = []
     for tree in rf.estimators_:
-        output = direectional_feature_importance(tree)
+        output = directional_feature_importance(tree)
         outputs.append(output)
     outputs = np.mean(outputs,axis=0)
     return outputs
